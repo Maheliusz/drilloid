@@ -1,7 +1,8 @@
-# Hello Scaloid for gradle
+# Drilloid
+A mobile application for (relatively) popular drill learning platform.
 
+-------------
 This is a template project that can be a starting point of a new [Scaloid](https://github.com/pocorall/scaloid) project.
-
 This contains minimum code as possible; therefore easy to run, examine and extend.
 
 Prerequisites
