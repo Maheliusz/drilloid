@@ -57,6 +57,7 @@ class HelloScaloid extends SActivity {
         new SRadioButton("Dobry wieczor").here
         new SRadioButton("Dobry wieczor").here
         new SRadioButton("Dobry wieczor").here
+        new SRadioButton("Dobry wieczor").here
       }.wrap.here
 
       new SListView {
