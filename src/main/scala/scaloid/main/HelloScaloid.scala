@@ -1,4 +1,4 @@
-package scaloid.example
+package scaloid.main
 
 import org.scaloid.common._
 import android.graphics.Color
@@ -12,7 +12,7 @@ import android.widget.CompoundButton
 
 class HelloScaloid extends SActivity {
 
-  lazy val correct= new STextView("Correct: ")
+  lazy val correct = new STextView("Correct: ")
   lazy val partially = new STextView("Partially: ")
   lazy val incorrect = new STextView("Incorrect: ")
 
@@ -21,6 +21,14 @@ class HelloScaloid extends SActivity {
   lazy val partially_percentage = new STextView("0%")
   lazy val incorrect_percentage = new STextView("0%")
 
+  val nameList = "Jeden"::"Dwa"::"Trzy"::Nil
+
+  def checkAnswer(button: SRadioButton) = {
+    button.isChecked match {
+      case true => button.setChecked(false)
+      case false => button.setChecked(true)
+    }
+  }
 
 
   onCreate {
@@ -29,34 +37,32 @@ class HelloScaloid extends SActivity {
         case b: SButton => b.textColor(Color.WHITE).onClick(correct.text = "PRESSED")
         case t: STextView => t textSize 15.dip
         case e: SEditText => e.backgroundColor(Color.YELLOW).textColor(Color.BLACK)
+        case r: SRadioButton => r.textColor(Color.WHITE).onClick(checkAnswer(r))
       }
 
-      new SLinearLayout{
+      new SLinearLayout {
         correct.here
         correct_percentage.here
       }.wrap.here
 
-      new SLinearLayout{
+      new SLinearLayout {
         partially.here
         partially_percentage.here
       }.wrap.here
 
-      new SLinearLayout{
+      new SLinearLayout {
         incorrect.here
         incorrect_percentage.here
       }.wrap.here
 
-      new SLinearLayout{
+      new SLinearLayout {
         STextView("Question: ") textSize 22.dip
       }.padding(15.dip).wrap.here
 
       new SListView {
-        new SRadioButton("Dobry wieczor").here
-        new SRadioButton("Dobry wieczor").here
-        new SRadioButton("Dobry wieczor").here
-        new SRadioButton("Dobry wieczor").here
-        new SRadioButton("Dobry wieczor").here
-        new SRadioButton("Dobry wieczor").here
+        nameList.foreach{
+          new SRadioButton(_).here
+        }
         new SRadioButton("Dobry wieczor").here
       }.wrap.here
 
