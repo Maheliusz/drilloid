@@ -26,7 +26,7 @@ class HelloScaloid extends SActivity {
   onCreate {
     contentView = new SVerticalLayout {
       style {
-        case b: SButton => b.textColor(Color.WHITE).onClick(correct.text = "PRESSED")
+        case b: SButton => b.textColor(Color.WHITE)
         case t: STextView => t textSize 15.dip
         case e: SEditText => e.backgroundColor(Color.YELLOW).textColor(Color.BLACK)
       }
